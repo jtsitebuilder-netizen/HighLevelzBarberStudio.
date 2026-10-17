@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>High Levelz Barber Studio</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%92%88%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#161311;--surf:#211c19;--line:#3a322d;--tx:#f3ede3;--mut:#b3a99c;--red:#d4202f;--blue:#2c4a8a;--gold:#f0b429;--btn:#f3ede3;--btnt:#161311;color-scheme:dark;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f6f1e8;--surf:#ebe3d5;--line:#d3c8b6;--tx:#1d1815;--mut:#62574c;--gold:#b97d00;--btn:#1d1815;--btnt:#f6f1e8;color-scheme:light}}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 17px/1.6 "DM Sans",system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;font-weight:900;line-height:.95;margin:0;letter-spacing:.01em}
+h1{font-size:clamp(3.6rem,14vw,9rem)}h2{font-size:clamp(2.4rem,7vw,4.2rem)}h3{font-size:1.7rem}
+p{margin:0 0 1em;max-width:60ch}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.25rem 1.5rem;padding:.6rem 1.25rem}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+.logo{all:unset;cursor:pointer;display:flex;align-items:center;gap:.6rem;font:900 1.5rem/1 "Big Shoulders Display",Impact,sans-serif;letter-spacing:.03em}
+.pole{width:14px;height:34px;border-radius:7px;border:2px solid var(--tx);background:repeating-linear-gradient(135deg,var(--red) 0 6px,#fff 6px 12px,var(--blue) 12px 18px,#fff 18px 24px)}
+nav{display:flex;gap:.25rem;overflow-x:auto;max-width:100%}
+nav button{background:none;border:0;padding:.5rem .8rem;font-weight:500;color:var(--mut);border-bottom:3px solid transparent}
+nav button.on{color:var(--tx);border-color:var(--red)}
+main{min-height:80vh}
+.page{display:none}.page.on{display:block}
+.wrap{max-width:1080px;margin:0 auto;padding:3.5rem 1.25rem}
+.btn{display:inline-block;background:var(--btn);color:var(--btnt);border:0;padding:.9rem 1.8rem;font-weight:700;border-radius:2px;text-decoration:none}
+.btn.red{background:var(--red);color:#fff}
+.btn.ghost{background:none;color:var(--tx);border:2px solid var(--tx)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero .stripes{position:absolute;right:-8%;top:0;bottom:0;width:34%;background:repeating-linear-gradient(135deg,var(--red) 0 38px,#fff 38px 76px,var(--blue) 76px 114px,#fff 114px 152px);opacity:.9;transform:skewX(-6deg)}
+.hero .wrap{position:relative;padding-top:5rem;padding-bottom:5rem}
+.hero h1{max-width:9ch;text-shadow:0 0 30px var(--bg)}
+.hero p{font-size:1.2rem;color:var(--mut);margin:1.5rem 0 2rem;background:var(--bg);display:inline-block;padding-right:.5rem}
+.row{display:flex;flex-wrap:wrap;gap:.8rem}
+.grid{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{background:var(--surf);border:1px solid var(--line);padding:1.5rem}
+.info{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));border-top:1px solid var(--line);padding-top:2rem;margin-top:3rem}
+.info b{display:block;font-family:"Big Shoulders Display",Impact,sans-serif;font-size:1.4rem}
+.info span{color:var(--mut)}
+.svc{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;padding:1.1rem 0;border-bottom:1px solid var(--line)}
+.svc h3{margin-bottom:.2rem}.svc span{color:var(--mut)}
+.svc .pr{font:900 2rem "Big Shoulders Display",Impact,sans-serif;color:var(--gold)}
+.av{width:84px;height:84px;border-radius:50%;display:grid;place-items:center;font:900 2rem "Big Shoulders Display",Impact,sans-serif;color:#fff;background:linear-gradient(135deg,var(--red),var(--blue));margin-bottom:1rem}
+.tag{color:var(--gold);font-weight:700;margin-bottom:.6rem}
+.note{color:var(--mut);font-size:.9rem}
+/* stars */
+.rate{display:grid;gap:2.5rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:center;background:var(--surf);border:1px solid var(--line);padding:2.5rem 1.5rem;margin-bottom:3rem}
+.big{font:900 clamp(6rem,22vw,10rem)/.85 "Big Shoulders Display",Impact,sans-serif}
+.big small{font-size:.35em;color:var(--mut)}
+.stars{display:flex;gap:.3rem;margin:1rem 0}
+.star{position:relative;width:clamp(40px,10vw,58px);aspect-ratio:1}
+.star svg{position:absolute;inset:0;width:100%;height:100%}
+.star .bg{fill:var(--line)}
+.star .fg{fill:var(--gold);clip-path:inset(0 100% 0 0);transition:clip-path .7s cubic-bezier(.3,.7,.2,1)}
+.rate.go .star .fg{clip-path:inset(0 var(--cut,0%) 0 0);transition-delay:calc(var(--i)*.45s)}
+.rate.go .star{animation:pop .5s calc(var(--i)*.45s + .3s) both}
+@keyframes pop{50%{transform:scale(1.25) rotate(-6deg)}}
+.bars div{display:grid;grid-template-columns:2.2rem 1fr 2.6rem;gap:.6rem;align-items:center;font-size:.9rem;margin:.35rem 0}
+.bars i{display:block;height:10px;background:var(--line);border-radius:5px;overflow:hidden}
+.bars i::after{content:"";display:block;height:100%;width:0;background:var(--gold);transition:width 1.2s 1.2s ease}
+.rate.go .bars i::after{width:var(--w)}
+.rv .s{color:var(--gold);letter-spacing:.1em}
+.rv p{margin:.6rem 0 1rem}
+.rv b{display:block}
+/* booking */
+.step{margin-bottom:2rem}
+.step h3{margin-bottom:.8rem}
+.opts{display:flex;flex-wrap:wrap;gap:.6rem}
+.opt{background:var(--surf);border:2px solid var(--line);padding:.65rem 1rem;border-radius:2px;text-align:left}
+.opt[aria-pressed="true"]{border-color:var(--red);background:var(--red);color:#fff}
+.opt:disabled{opacity:.35;text-decoration:line-through;cursor:not-allowed}
+input{font:inherit;background:var(--surf);color:var(--tx);border:2px solid var(--line);padding:.7rem .9rem;width:100%;max-width:340px;margin:0 .6rem .6rem 0}
+.sum{background:var(--surf);border-left:6px solid var(--gold);padding:1.2rem 1.5rem;margin:1.5rem 0}
+.sum p{margin:.2rem 0}
+.err{color:#ff7a7a;min-height:1.5em}
+.done{display:none;text-align:center;padding:3rem 1rem}
+.done.on{display:block}
+footer{border-top:1px solid var(--line);padding:2rem 1.25rem;color:var(--mut);text-align:center;font-size:.9rem}
+/* page curtain */
+.curtain{position:fixed;inset:0;z-index:100;pointer-events:none;transform:translateY(100%);display:grid;place-items:center;
+background:repeating-linear-gradient(135deg,var(--red) 0 60px,#fff 60px 120px,var(--blue) 120px 180px,#fff 180px 240px)}
+.curtain b{background:var(--bg);color:var(--tx);padding:.8rem 2rem;font:900 clamp(2rem,8vw,4rem) "Big Shoulders Display",Impact,sans-serif;border:3px solid var(--tx)}
+.curtain.cover{transform:none;transition:transform .5s cubic-bezier(.7,0,.2,1)}
+.curtain.exit{transform:translateY(-100%);transition:transform .55s cubic-bezier(.7,0,.2,1)}
+@media (prefers-reduced-motion:reduce){.curtain{display:none}.star .fg,.bars i::after{transition:none}.rate.go .star{animation:none}}
+</style>
+</head>
+<body>
+<header>
+  <button class="logo" data-go="home" aria-label="High Levelz Barber Studio home"><span class="pole"></span>HIGH LEVELZ</button>
+  <nav aria-label="Main">
+    <button data-go="home">Home</button><button data-go="services">Services</button><button data-go="barbers">Barbers</button><button data-go="reviews">Reviews</button><button data-go="book">Book</button>
+  </nav>
+</header>
+<main>
+<section class="page" id="p-home">
+  <div class="hero"><div class="stripes"></div><div class="wrap">
+    <h1>Fresh cuts. High levelz.</h1>
+    <p>A neighborhood barber studio built around sharp fades, clean lines and a good chair. Walk in looking tired. Walk out like it’s Saturday.</p>
+    <div class="row"><button class="btn red" data-go="book">Book a barber</button><button class="btn ghost" data-go="reviews">Read reviews</button></div>
+  </div></div>
+  <div class="wrap">
+    <h2>Five chairs. One standard.</h2>
+    <p style="margin-top:1rem;color:var(--mut)">Every barber at High Levelz trains on the same rule: no rushed cuts. Pick your barber, pick your time, and show up. We’ll handle the rest.</p>
+    <div class="info">
+      <div><b>Find us</b><span>High Levelz Barber Studio<br>915 County Rd 517<br>Hackettstown, NJ 07840</span></div>
+      <div><b>Hours</b><span>Mon–Sat 9am–8pm<br>Sun 9am–4pm</span></div>
+      <div><b>Call</b><span>(908) 684-7060</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="p-services"><div class="wrap">
+  <h2>Services</h2>
+  <div id="svcList" style="margin-top:2rem"></div>
+  <div style="margin-top:2.5rem"><button class="btn red" data-go="book">Book a service</button></div>
+</div></section>
+
+<section class="page" id="p-barbers"><div class="wrap">
+  <h2>Meet the barbers</h2><p style="color:var(--mut);margin-top:1rem">Pick a barber to book on Booksy.</p>
+  <div class="grid" id="barberGrid" style="margin-top:2rem"></div>
+</div></section>
+
+<section class="page" id="p-reviews"><div class="wrap">
+  <h2>What the chair says</h2>
+  <div class="rate" id="rate" style="margin-top:2rem">
+    <div>
+      <div class="big"><span id="num">0.0</span><small>/5</small></div>
+      <div class="stars" role="img" aria-label="4.5 out of 5 stars"></div>
+      <p style="margin:0;color:var(--mut)">Average rating from happy customers</p>
+    </div>
+    <div class="bars" id="bars"></div>
+  </div>
+  <div class="grid" id="revGrid"></div>
+</div></section>
+
+<section class="page" id="p-book"><div class="wrap">
+  <h2>Book your cut</h2>
+  <p style="color:var(--mut);margin-top:1rem">Pick your barber, then choose your service and time on Booksy.</p>
+  <div class="opts" id="oB" style="margin-top:2rem"></div>
+  <div class="sum" id="sum"></div>
+  <a class="btn red" id="go" target="_blank" rel="noopener" aria-disabled="true">Continue to Booksy</a>
+  <p class="note" style="margin-top:1.5rem">Prefer to call? <a href="tel:+19086847060">(908) 684-7060</a></p>
+</div></section>
+</main>
+<footer>© 2026 High Levelz Barber Studio</footer>
+<div class="curtain" id="curtain" aria-hidden="true"><b>HIGH LEVELZ</b></div>
+
+<script>
+var $=function(s){return document.querySelector(s)},$$=function(s){return [].slice.call(document.querySelectorAll(s))};
+var BARBERS=[
+ {id:"b1",name:"Braulio",role:"Barber",url:"https://booksy.com/en-us/446528_braulio_barber-shop_28886_hackettstown"},
+ {id:"b2",name:"John Fischer",role:"Barber",url:"https://booksy.com/en-us/1629167_john-fischer_barber-shop_28886_hackettstown"},
+ {id:"b3",name:"Franklin",role:"Barber",url:"https://booksy.com/en-us/1516708_franklin_barber-shop_28886_hackettstown"},
+ {id:"b4",name:"Richard",role:"Barber",url:"https://booksy.com/en-us/1019206_richard_barber-shop_28886_hackettstown"},
+ {id:"b5",name:"Adrian",role:"Barber",url:"https://booksy.com/en-us/1449618_adrian_barber-shop_28886_hackettstown"}];
+var SERVICES=[
+ {n:"Haircut",d:"Any style, finished with a clean lineup.",p:35,m:30},
+ {n:"Beard",d:"Shaped and trimmed to fit your face.",p:20,m:15},
+ {n:"Haircut & beard",d:"The full reset in one chair.",p:45,m:40},
+ {n:"Kid’s haircut",d:"Quick, friendly and sharp.",p:30,m:30},
+ {n:"Line up",d:"Crisp edges along the hairline and temples.",p:20,m:20},
+ {n:"Head shave",d:"A smooth, close shave from front to back.",p:30,m:25},
+ {n:"Edge up",d:"A quick touch-up of your outline.",p:15,m:15},
+ {n:"Hot towel shave",d:"A traditional razor shave with a hot towel.",p:40,m:30},
+ {n:"Shape up",d:"Clean, defined lines around the hairline.",p:20,m:30}];
+var REVIEWS=[
+ {n:"Marcus T.",s:5,t:"Best fade I’ve had in years. Got in on time, got out looking fresh. Already booked my next one."},
+ {n:"Devon R.",s:5,t:"Clean shop, good music and nobody rushes you. The lineup stayed sharp for two weeks."},
+ {n:"Anthony P.",s:4,t:"Great cut and great conversation. Wait was a little longer than I expected, but worth it."},
+ {n:"Jamal W.",s:5,t:"Brought my son for his first real haircut. He didn’t stop smiling in the mirror."},
+ {n:"Chris L.",s:4,t:"Beard trim was spot on. Would love online booking, and now it’s here."},
+ {n:"Sam K.",s:5,t:"Walked in without a plan and the barber nailed exactly what I needed."}];
+var S={b:null};
+
+/* build content */
+$("#svcList").innerHTML=SERVICES.map(function(x){return '<div class="svc"><div><h3>'+x.n+'</h3><span>'+x.d+' About '+x.m+' min.</span></div><div class="pr">$'+x.p+'</div></div>'}).join("");
+$("#barberGrid").innerHTML=BARBERS.map(function(b){return '<div class="card"><div class="av">'+b.name[0]+'</div><h3>'+b.name+'</h3><div class="tag">'+b.role+'</div><a class="btn red" href="'+b.url+'" target="_blank" rel="noopener">Book '+b.name.split(" ")[0]+'</a></div>'}).join("");
+$("#revGrid").innerHTML=REVIEWS.map(function(r){return '<div class="card rv"><div class="s" aria-label="'+r.s+' stars">'+"★".repeat(r.s)+"☆".repeat(5-r.s)+'</div><p>“'+r.t+'”</p><b>'+r.n+'</b></div>'}).join("");
+var star='<svg viewBox="0 0 24 24"><path d="M12 1.8l3.2 6.9 7.5.9-5.6 5.1 1.5 7.4L12 18.3 5.4 22.1l1.5-7.4L1.3 9.6l7.5-.9z"/></svg>';
+$(".stars").innerHTML=[0,1,2,3,4].map(function(i){return '<div class="star" style="--i:'+i+';--cut:'+(i==4?"50%":"0%")+'">'+star.replace("<svg",'<svg class="bg"')+star.replace("<svg",'<svg class="fg"')+'</div>'}).join("");
+$("#bars").innerHTML=[["5★",68],["4★",24],["3★",5],["2★",2],["1★",1]].map(function(r){return '<div><span>'+r[0]+'</span><i style="--w:'+r[1]+'%"></i><span>'+r[1]+'%</span></div>'}).join("");
+
+function runStars(){
+  var r=$("#rate");r.classList.remove("go");void r.offsetWidth;
+  setTimeout(function(){r.classList.add("go")},80);
+  var n=$("#num"),t0=null;
+  (function f(ts){t0=t0||ts;var p=Math.min((ts-t0)/2200,1);n.textContent=(4.5*p).toFixed(1);if(p<1)requestAnimationFrame(f)})(performance.now());
+}
+
+/* booking */
+function renderBook(){
+  var o=$("#oB");o.innerHTML="";
+  BARBERS.forEach(function(b){var x=document.createElement("button");x.className="opt";x.textContent=b.name;x.setAttribute("aria-pressed",S.b===b.id?"true":"false");x.onclick=function(){S.b=b.id;renderBook()};o.appendChild(x)});
+  var b=BARBERS.filter(function(x){return x.id===S.b})[0],g=$("#go");
+  $("#sum").innerHTML='<p><b>'+(b?b.name:"Pick a barber")+'</b></p><p>'+(b?"You’ll finish booking on Booksy.":"Choose who you want to cut your hair.")+'</p>';
+  if(b){g.href=b.url;g.removeAttribute("aria-disabled");g.style.opacity="";g.style.pointerEvents=""}
+  else{g.removeAttribute("href");g.setAttribute("aria-disabled","true");g.style.opacity=".4";g.style.pointerEvents="none"}
+}
+
+/* routing and page transition */
+var PAGES=["home","services","barbers","reviews","book"],cur=null,busy=false,cv=$("#curtain");
+function show(p){
+  $$(".page").forEach(function(s){s.classList.toggle("on",s.id==="p-"+p)});
+  $$("nav button").forEach(function(b){b.classList.toggle("on",b.dataset.go===p)});
+  window.scrollTo(0,0);cur=p;
+  if(p==="reviews")runStars();
+  if(p==="book")renderBook();
+}
+function route(){
+  var p=location.hash.slice(1);if(PAGES.indexOf(p)<0)p="home";
+  if(p===cur)return;
+  if(cur===null||matchMedia("(prefers-reduced-motion:reduce)").matches){show(p);return}
+  if(busy)return;busy=true;
+  cv.className="curtain cover";
+  setTimeout(function(){show(p);cv.className="curtain exit";
+    setTimeout(function(){cv.className="curtain";busy=false},580)},540);
+}
+document.addEventListener("click",function(e){
+  var g=e.target.closest("[data-go]");
+  if(g){if(location.hash==="#"+g.dataset.go)return;location.hash=g.dataset.go}
+});
+window.addEventListener("hashchange",route);
+route();
+</script>
+</body>
+</html>
